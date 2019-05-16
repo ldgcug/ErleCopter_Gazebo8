@@ -132,9 +132,9 @@ $ cp -r ~/erlecopter_gazebo8/gazebo_cpp_examples/ ~/simulation/ros_catkin_ws/src
 $ cp -r ~/erlecopter_gazebo8/gazebo_python_examples/ ~/simulation/ros_catkin_ws/src/
 ```
 
-> 拷贝fix-unused-typedef-warning.path文件到工作空间内
+> 拷贝fix-unused-typedef-warning.patch文件到工作空间内
 ```python
-$ cp -r ~/erlecopter_gazebo8/fix-unused-typedef-warning.path ~/simulation/ros_catkin_ws/src/
+$ cp -r ~/erlecopter_gazebo8/fix-unused-typedef-warning.patch ~/simulation/ros_catkin_ws/src/
 ```
 > 安装drcsim7（ubuntu16不支持apt-get，需使用源码下载安装）
 

@@ -483,6 +483,12 @@ $ git clone https://github.com/erlerobot/erle_gazebo_models
 $ mv erle_gazebo_models/* ~/.gazebo/models
 ```
 
+> 修改权限
+'''
+$ cd ~/simulation
+$ chmod 777 ardupilot/ 
+'''
+
 ## 五、启动erle_copter
 
 > 启动ArduCopter（一个终端）

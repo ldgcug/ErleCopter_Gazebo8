@@ -462,9 +462,9 @@ BOOST_TT_AUX_BOOL_TRAIT_DEF3(BOOST_TT_TRAIT_NAME, Lhs, Rhs=Lhs, Ret=::boost::det
 #include <boost/type_traits/detail/bool_trait_undef.hpp>
 ```
 
-> 下载相应包进行替换（替换掉原工作空间的drcsim、hector_gazebo、gazebo_ros_pkgs）
+> 下载相应包进行替换（替换掉原工作空间的drcsim、hector_gazebo、gazebo_ros_pkgs,还需要替换掉simulation文件下的ardupilot）
 > 链接: https://pan.baidu.com/s/1TufCNJ8z5TxyC5rnZhi56A 提取码: usjz 
-> 下载文件主要包含三个文件，分别是drcsim、hector_gazebo、gazebo_ros_pkgs，将它们解压，并将其复制到~/simulation/ros_catkin_ws/src目录下，将前面的三个文件进行替换
+> 下载文件主要包含四个文件，分别是drcsim、hector_gazebo、gazebo_ros_pkgs、ardupilot，将它们解压，并将（drcsim、hector_gazebo、gazebo_ros_pkgs）复制到~/simulation/ros_catkin_ws/src目录下，将前面的三个文件进行替换，然后将ardupilot复制到~/simulation文件夹下，替换掉原有的ardupilot
 
 > 编译工作空间
 
@@ -483,11 +483,6 @@ $ git clone https://github.com/erlerobot/erle_gazebo_models
 $ mv erle_gazebo_models/* ~/.gazebo/models
 ```
 
-> 修改权限
-'''
-$ cd ~/simulation
-$ chmod 777 ardupilot/ 
-'''
 
 ## 五、启动erle_copter
 
@@ -506,6 +501,19 @@ $ cd ~/simulation/ros_catkin_ws/
 $ source ~/simulation/ros_catkin_ws/devel/setup.bash
 $ roslaunch ardupilot_sitl_gazebo_plugin erlecopter_spawn.launch
 ```
+> 在第一个终端上输入如下命令：
+```
+$ param load /[path_to_your_home_directory]/simulation/ardupilot/Tools/Frame_params/Erle-Copter.param
+```
+用你的实际目录替换掉上面的path_to_your_home_directory，如我的是：param load /home/cug/simulation/ardupilot/Tools/Frame_params/Erle-Copter.param
+
+> 起飞测试，仍然在第一个终端执行
+```
+$ mode GUIDED
+$ arm throttle
+$ takeoff 2
+```
+说明：在mode GUIDED后面需要回车，而arm throttle之后，不需要回车，直接在输入takeoff 2就可以完成起飞了
 
 ## 官网安装网址
 

@@ -97,11 +97,11 @@ $ make
 $ sudo make install
 ```
 
-> 拷贝ardupilot到特定文件夹
+> clone ardupilot到特定文件夹
 
 ```python
 $ mkdir -p ~/simulation; cd ~/simulation
-$ cp -r ~/erlecopter_gazebo8/ardupilot/ ~/simulation/
+$ git clone https://github.com/erlerobot/ardupilot -b gazebo
 ```
 
 > 创建ros工作空间及初始化工作空间
@@ -188,7 +188,6 @@ $ sudo apt-get install -y ros-kinetic-xacro        \
 $ sudo apt-get install -y cmake debhelper                         \
                      ros-kinetic-std-msgs ros-kinetic-common-msgs   \
                      ros-kinetic-image-common ros-kinetic-geometry  \
-
                      ros-kinetic-robot-state-publisher            \
                      ros-kinetic-image-pipeline                   \
                      ros-kinetic-image-transport-plugins          \
@@ -464,7 +463,7 @@ BOOST_TT_AUX_BOOL_TRAIT_DEF3(BOOST_TT_TRAIT_NAME, Lhs, Rhs=Lhs, Ret=::boost::det
 
 > 下载相应包进行替换（替换掉原工作空间的drcsim、hector_gazebo、gazebo_ros_pkgs,还需要替换掉simulation文件下的ardupilot）
 > 链接: https://pan.baidu.com/s/1TufCNJ8z5TxyC5rnZhi56A 提取码: usjz 
-> 下载文件主要包含四个文件，分别是drcsim、hector_gazebo、gazebo_ros_pkgs、ardupilot，将它们解压，并将（drcsim、hector_gazebo、gazebo_ros_pkgs）复制到~/simulation/ros_catkin_ws/src目录下，将前面的三个文件进行替换，然后将ardupilot复制到~/simulation文件夹下，替换掉原有的ardupilot
+> 下载文件主要包含三个文件，分别是drcsim、hector_gazebo、gazebo_ros_pkgs，将它们解压，并将（drcsim、hector_gazebo、gazebo_ros_pkgs）复制到~/simulation/ros_catkin_ws/src目录下，将前面的三个文件进行替换
 
 > 编译工作空间
 
@@ -513,7 +512,7 @@ $ mode GUIDED
 $ arm throttle
 $ takeoff 2
 ```
-说明：在mode GUIDED后面需要回车，而arm throttle之后，不需要回车，直接在输入takeoff 2就可以完成起飞了
+说明：在mode GUIDED后面需要回车，而arm throttle之后，可以不需要回车，直接在输入takeoff 2就可以完成起飞了
 
 ## 官网安装网址
 
